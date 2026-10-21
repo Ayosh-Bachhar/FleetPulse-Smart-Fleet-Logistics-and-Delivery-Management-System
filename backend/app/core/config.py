@@ -7,7 +7,7 @@ BACKEND_DIR = Path(__file__).resolve().parents[2]
 
 
 class Settings(BaseSettings):
-    MONGODB_URL: str = "mongodb://127.0.0.1:27017"
+    MONGODB_URL: str
     DATABASE_NAME: str = "fleetpulse_db"
     FRONTEND_URL: str = "http://localhost:5173"
     JWT_SECRET_KEY: str
