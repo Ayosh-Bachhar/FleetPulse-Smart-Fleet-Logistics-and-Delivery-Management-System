@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+beanie
+pymongo
+pydantic-settings
+python-dotenv
+httpx
+PyJWT
+bcrypt
+python-multipart
+apscheduler
+pytest

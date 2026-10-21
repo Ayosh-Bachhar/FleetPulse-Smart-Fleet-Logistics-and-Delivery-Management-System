@@ -1,0 +1,26 @@
+# Python
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+*.pyc
+
+# Node.js
+**/node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Environment variables and secrets
+.env
+**/.env
+!**/.env.example
+
+# User uploads
+backend/uploads/proofs/
+
+# IDE / System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
