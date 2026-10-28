@@ -10,3 +10,4 @@ bcrypt
 python-multipart
 apscheduler
 pytest
+email-validator
