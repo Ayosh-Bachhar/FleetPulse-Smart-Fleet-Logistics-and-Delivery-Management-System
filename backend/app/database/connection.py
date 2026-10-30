@@ -1,7 +1,8 @@
 from pymongo import AsyncMongoClient
 from beanie import init_beanie
-from app.models.vehicle import Vehicle
 
+from app.models.vehicle import Vehicle
+from app.models.user import User
 from app.core.config import settings
 
 
@@ -15,7 +16,7 @@ async def connect_to_database():
 
     await init_beanie(
         database=database,
-        document_models=[Vehicle],
+        document_models=[Vehicle, User],
     )
 
     print(f"Connected to MongoDB: {settings.DATABASE_NAME}")
