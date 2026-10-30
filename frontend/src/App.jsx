@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import apiClient from './api/apiClient'
 
@@ -48,6 +49,14 @@ function App() {
       </p>
 
       <p>{message}</p>
+
+      <p style={{ marginTop: '25px' }}>
+        <Link to="/register">Create an Account</Link>
+      </p>
+      <p>
+        <Link to="/login">Login to FleetPulse</Link>
+      </p>
+
     </main>
   )
 }
