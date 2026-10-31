@@ -32,6 +32,21 @@ class Order(Document):
         max_length=500,
     )
 
+    # F12 - Optional coordinates for routing.
+    # Existing orders without coordinates remain valid.
+    pickup_latitude: float | None = Field(
+        default=None, ge=-90, le=90
+    )
+    pickup_longitude: float | None = Field(
+        default=None, ge=-180, le=180
+    )
+    delivery_latitude: float | None = Field(
+        default=None, ge=-90, le=90
+    )
+    delivery_longitude: float | None = Field(
+        default=None, ge=-180, le=180
+    )
+
     weight_kg: float = Field(
         gt=0,
         allow_inf_nan=False,

@@ -1,0 +1,16 @@
+{
+  "description": "Approximate demonstration coordinates for the FleetPulse sample orders. Not verified delivery addresses, road routes or travel times.",
+  "country": "BD",
+  "locations": {
+    "uttara, dhaka": [23.8759, 90.3795],
+    "mirpur, dhaka": [23.8041, 90.3654],
+    "banani, dhaka": [23.7937, 90.4066],
+    "dhanmondi, dhaka": [23.7461, 90.3742],
+    "mohakhali, dhaka": [23.7794, 90.3987],
+    "gulshan, dhaka": [23.7925, 90.4078]
+  },
+  "estimate_method": {
+    "road_distance_multiplier": 1.3,
+    "average_speed_kmh": 20
+  }
+}

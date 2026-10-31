@@ -21,6 +21,7 @@ import DriverManagementPage from '../features/driver_management/DriverManagement
 import ShiftRosterPage from '../features/shift_roster/ShiftRosterPage'
 import MaintenanceAlertsPage from '../features/maintenance_alerts/MaintenanceAlertsPage'
 import DispatchPlanningPage from '../features/dispatch_planning/DispatchPlanningPage'
+import RouteDistanceAndTimePage from '../features/route_distance_and_time/RouteDistanceAndTimePage'
 
 function LoginRoute() {
   const { user, authLoading } = useAuth()
@@ -136,6 +137,12 @@ function AppRoutes() {
               path="/dispatch"
               element={<DispatchPlanningPage />}
             />
+
+            <Route
+              path="/routes"
+              element={<RouteDistanceAndTimePage />}
+            />
+
           </Route>
         </Route>
       </Routes>

@@ -24,6 +24,10 @@ class Settings(BaseSettings):
     CALENDARIFIC_API_KEY: str = ""
     CALENDARIFIC_COUNTRY: str = "BD"
 
+    # F12 - Geoapify Routing and Geocoding
+    GEOAPIFY_API_KEY: str = ""
+    GEOAPIFY_COUNTRY_CODE: str = "bd"
+
     model_config = SettingsConfigDict(
         env_file=BACKEND_DIR / ".env",
         env_file_encoding="utf-8",
