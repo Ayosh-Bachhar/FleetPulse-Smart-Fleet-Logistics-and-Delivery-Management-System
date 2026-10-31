@@ -73,6 +73,13 @@ function Sidebar() {
               Maintenance Alerts
             </NavLink>
 
+            <NavLink
+            to="/dispatch"
+            className={navClass}
+            >
+              Dispatch Planning
+            </NavLink>
+
           </>
         )}
 
