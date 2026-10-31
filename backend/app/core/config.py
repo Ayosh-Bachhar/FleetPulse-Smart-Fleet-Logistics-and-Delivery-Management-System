@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -18,6 +19,10 @@ class Settings(BaseSettings):
     SMTP_USERNAME: str = ""
     SMTP_PASSWORD: str = ""
     SMTP_FROM_EMAIL: str = ""
+
+    # F3 - Calendarific
+    CALENDARIFIC_API_KEY: str = ""
+    CALENDARIFIC_COUNTRY: str = "BD"
 
     model_config = SettingsConfigDict(
         env_file=BACKEND_DIR / ".env",

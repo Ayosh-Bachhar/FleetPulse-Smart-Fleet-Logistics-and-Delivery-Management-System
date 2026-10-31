@@ -1,0 +1,1166 @@
+/* FleetPulse authenticated workspace */
+
+.workspace-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Sidebar */
+
+.workspace-sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 240px;
+  width: 240px;
+  padding: 28px 18px;
+  border-right: 1px solid var(--border);
+  background: #fbf8f3;
+}
+
+.workspace-brand {
+  padding: 4px 10px;
+}
+
+.workspace-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 45px;
+}
+
+.workspace-nav-label {
+  display: block;
+  margin: 0 12px 10px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.3px;
+}
+
+.workspace-navlink {
+  display: flex;
+  align-items: center;
+  min-height: 43px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.workspace-navlink:hover {
+  background: #f2ebe3;
+  text-decoration: none;
+}
+
+.workspace-navlink.is-active {
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+  font-weight: 700;
+}
+
+.workspace-sidebar-footer {
+  margin-top: auto;
+  padding: 20px 4px 0;
+}
+
+.workspace-role {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+/* Main content */
+
+.workspace-page {
+  flex: 1;
+  min-width: 0;
+}
+
+.workspace-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 78px;
+  padding: 16px 35px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.workspace-topbar-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.workspace-account {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.workspace-account-name {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.workspace-topbar .button {
+  min-height: 36px;
+  padding: 7px 13px;
+}
+
+.workspace-content {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: 55px 36px;
+}
+
+/* Dashboard welcome screen */
+
+.workspace-welcome {
+  max-width: 800px;
+}
+
+.workspace-eyebrow {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 1.5px;
+}
+
+.workspace-heading {
+  margin: 0 0 16px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 500;
+  letter-spacing: -1.2px;
+}
+
+.workspace-description {
+  max-width: 610px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.workspace-info-card {
+  margin-top: 36px;
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.workspace-info-card h2 {
+  margin: 0 0 20px;
+  font-size: 17px;
+}
+
+.workspace-info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.workspace-info-row:last-child {
+  border-bottom: 0;
+}
+
+.workspace-info-row span {
+  color: var(--muted);
+}
+
+.workspace-info-row strong {
+    overflow-wrap: anywhere;
+    text-align: right;
+    font-weight: 600;
+}
+
+.workspace-info-row:last-child strong {
+    text-transform: capitalize;
+}
+
+.workspace-loading {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  color: var(--muted);
+}
+
+/* Responsive layout */
+
+@media (max-width: 800px) {
+  .workspace-shell {
+    flex-direction: column;
+  }
+
+  .workspace-sidebar {
+    width: 100%;
+    flex-basis: auto;
+    padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .workspace-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .workspace-nav-label,
+  .workspace-sidebar-footer {
+    display: none;
+  }
+
+  .workspace-topbar {
+    padding: 16px 20px;
+  }
+
+  .workspace-content {
+    padding: 35px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workspace-topbar {
+    flex-wrap: wrap;
+  }
+
+  .workspace-account {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .workspace-info-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .workspace-info-row strong {
+    text-align: left;
+  }
+}
+
+
+/* ==========================================
+   F1 - Fleet Management
+   ========================================== */
+
+.fleet-page {
+  display: grid;
+  gap: 25px;
+}
+
+.fleet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.fleet-header .workspace-heading {
+  margin-bottom: 10px;
+}
+
+.fleet-header .button {
+  flex-shrink: 0;
+}
+
+.fleet-panel {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.fleet-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.fleet-panel-header h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.fleet-panel-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Search and filters */
+
+.fleet-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.fleet-search {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+}
+
+.fleet-search .form-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.fleet-filter {
+  width: 175px;
+  flex-shrink: 0;
+}
+
+/* Vehicle table */
+
+.fleet-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.fleet-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.fleet-table th {
+  padding: 14px 12px;
+  color: var(--muted);
+  background: #f7f3ed;
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.fleet-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.fleet-table td strong {
+  font-weight: 650;
+}
+
+.fleet-table tbody tr:hover {
+  background: #faf7f2;
+}
+
+.fleet-empty {
+  padding: 35px !important;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Status badges */
+
+.fleet-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.fleet-status-available {
+  color: #287147;
+  background: #e5f4ea;
+}
+
+.fleet-status-in_use {
+  color: #385d91;
+  background: #e8f0fa;
+}
+
+.fleet-status-maintenance {
+  color: #a36b19;
+  background: #fff0d3;
+}
+
+.fleet-status-inactive {
+  color: #6d6a66;
+  background: #eeeae5;
+}
+
+/* Row actions */
+
+.fleet-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.fleet-actions button {
+  border: 0;
+  padding: 4px 0;
+  background: transparent;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.fleet-actions button:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Add and edit vehicle form */
+
+.fleet-form {
+  display: grid;
+  gap: 20px;
+}
+
+.fleet-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.fleet-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.fleet-form .notice {
+  margin-top: 0;
+}
+
+/* Vehicle details */
+
+.fleet-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.fleet-details > div {
+  display: grid;
+  gap: 7px;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.fleet-details span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fleet-details strong {
+  font-size: 14px;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+/* Pagination */
+
+.fleet-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.fleet-pagination-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.fleet-pagination .button {
+  min-height: 36px;
+  padding: 7px 14px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 850px) {
+  .fleet-header {
+    flex-wrap: wrap;
+  }
+
+  .fleet-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .fleet-search {
+    flex-basis: 100%;
+  }
+
+  .fleet-filter {
+    width: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .fleet-panel {
+    padding: 18px;
+  }
+
+  .fleet-form-grid,
+  .fleet-details {
+    grid-template-columns: 1fr;
+  }
+
+  .fleet-pagination {
+    flex-wrap: wrap;
+  }
+
+  .fleet-form-actions {
+    flex-wrap: wrap;
+  }
+
+  .fleet-form-actions .button {
+    flex: 1;
+  }
+}
+
+
+/* ==========================================
+   F2 - Driver Management
+   ========================================== */
+
+.driver-page {
+  display: grid;
+  gap: 25px;
+}
+
+.driver-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.driver-header .workspace-heading {
+  margin-bottom: 10px;
+}
+
+.driver-header .button {
+  flex-shrink: 0;
+}
+
+/* Driver filters */
+
+.driver-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.driver-toolbar .fleet-search {
+  min-width: 0;
+}
+
+.driver-filter {
+  width: 160px;
+  flex-shrink: 0;
+}
+
+/* Driver statuses */
+
+.driver-status-available {
+  color: #287147;
+  background: #e5f4ea;
+}
+
+.driver-status-unavailable {
+  color: #a36b19;
+  background: #fff0d3;
+}
+
+.driver-status-inactive {
+  color: #6d6a66;
+  background: #eeeae5;
+}
+
+.driver-eligible {
+  color: #287147;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.driver-ineligible {
+  color: #a63c38;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Form */
+
+.driver-form-full {
+  grid-column: 1 / -1;
+}
+
+.driver-field-hint {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Vehicle license compatibility */
+
+.driver-compatibility {
+  margin-top: 25px;
+  padding-top: 23px;
+  border-top: 1px solid var(--border);
+}
+
+.driver-compatibility h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.driver-compatibility > p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.driver-check-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.driver-check-form .form-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.driver-check-form .button {
+  flex-shrink: 0;
+}
+
+.driver-result {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.driver-result strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.driver-result p {
+  margin: 7px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.driver-result-ok {
+  background: #eaf5ed;
+  border-color: #c4e2cd;
+  color: #287147;
+}
+
+.driver-result-blocked {
+  background: #fff0e7;
+  border-color: #ead5c6;
+  color: #994e36;
+}
+
+/* Responsive design */
+
+@media (max-width: 1050px) {
+  .driver-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .driver-toolbar .fleet-search {
+    flex-basis: 100%;
+  }
+
+  .driver-filter {
+    flex: 1;
+    width: auto;
+  }
+}
+
+@media (max-width: 650px) {
+  .driver-header {
+    flex-wrap: wrap;
+  }
+
+  .driver-form-full {
+    grid-column: 1;
+  }
+
+  .driver-check-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .driver-check-form .form-input,
+  .driver-check-form .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .driver-filter {
+    flex-basis: 100%;
+  }
+
+  .driver-toolbar .fleet-search {
+    flex-wrap: wrap;
+  }
+}
+
+/* ==========================================
+   F3 - Shift Roster
+   ========================================== */
+
+.shift-page {
+  display: grid;
+  gap: 25px;
+}
+
+.shift-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.shift-header .workspace-heading {
+  margin-bottom: 10px;
+}
+
+.shift-header .button {
+  flex-shrink: 0;
+}
+
+/* Filter controls */
+
+.shift-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.shift-filter {
+  min-width: 175px;
+  flex: 1;
+}
+
+/* Shift table */
+
+.shift-table {
+  min-width: 900px;
+}
+
+.shift-table td {
+  white-space: nowrap;
+}
+
+.shift-actions {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Shift statuses */
+
+.shift-status-scheduled {
+  color: #385d91;
+  background: #e8f0fa;
+}
+
+.shift-status-completed {
+  color: #287147;
+  background: #e5f4ea;
+}
+
+.shift-status-cancelled {
+  color: #6d6a66;
+  background: #eeeae5;
+}
+
+/* Holiday indicators */
+
+.shift-holiday-label {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #a36b19;
+  background: #fff0d3;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.shift-holiday-none {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.shift-holiday-warning,
+.shift-holiday-info {
+  padding: 15px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.shift-holiday-warning {
+  color: #99571b;
+  background: #fff0d3;
+  border-color: #eed9ae;
+}
+
+.shift-holiday-info {
+  color: #385d91;
+  background: #eef3fa;
+  border-color: #d8e3f0;
+}
+
+.shift-holiday-warning strong,
+.shift-holiday-info strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.shift-holiday-warning p,
+.shift-holiday-info p {
+  margin: 0 0 6px;
+}
+
+.shift-holiday-warning small,
+.shift-holiday-info small {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* Form information */
+
+.shift-form-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Shift details */
+
+.shift-detail-holiday {
+  margin-top: 25px;
+  padding: 18px;
+  background: #faf7f2;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.shift-detail-holiday h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.shift-detail-holiday p {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.shift-detail-holiday span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 850px) {
+  .shift-header {
+    flex-wrap: wrap;
+  }
+
+  .shift-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .shift-filter {
+    width: 100%;
+    flex: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .shift-header .button {
+    width: 100%;
+  }
+
+  .shift-form-hint {
+    font-size: 11px;
+  }
+
+  .shift-actions {
+    min-width: 160px;
+  }
+}
+
+
+/* ==========================================
+   F4 - Maintenance Alerts
+   ========================================== */
+
+.maintenance-page {
+  display: grid;
+  gap: 25px;
+}
+
+.maintenance-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.maintenance-header .workspace-heading {
+  margin-bottom: 10px;
+}
+
+/* Search and filter */
+
+.maintenance-toolbar {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.maintenance-filter-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.maintenance-filter-label input {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+
+/* Vehicle maintenance table */
+
+.maintenance-table {
+  min-width: 900px;
+}
+
+.maintenance-actions {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.maintenance-state {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.maintenance-state.is-normal {
+  color: #287147;
+  background: #e5f4ea;
+}
+
+.maintenance-state.is-due {
+  color: #a36b19;
+  background: #fff0d3;
+}
+
+/* Maintenance detail card */
+
+.maintenance-details-card {
+  display: grid;
+  gap: 20px;
+}
+
+.maintenance-message {
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.maintenance-message strong {
+  font-size: 14px;
+}
+
+.maintenance-message p {
+  margin: 7px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.maintenance-message-warning {
+  background: #fff0d3;
+  border-color: #eed9ae;
+  color: #99571b;
+}
+
+.maintenance-message-ok {
+  background: #eaf5ed;
+  border-color: #c4e2cd;
+  color: #287147;
+}
+
+/* Service progress */
+
+.maintenance-progress-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 13px;
+}
+
+.maintenance-progress-heading span {
+  color: var(--muted);
+}
+
+.maintenance-progress-heading strong {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.maintenance-progress-track {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #ede6dc;
+}
+
+.maintenance-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.maintenance-progress-fill.is-due {
+  background: #c78929;
+}
+
+.maintenance-details-grid {
+  margin-top: 5px;
+}
+
+/* Maintenance actions */
+
+.maintenance-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.maintenance-card-actions .button {
+  min-height: 40px;
+}
+
+/* Maintenance form */
+
+.maintenance-notes {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.maintenance-form-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* History */
+
+.maintenance-trigger-text {
+  display: block;
+  margin-top: 5px;
+  color: #a36b19;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+  .maintenance-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .maintenance-filter-label {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 550px) {
+  .maintenance-page .fleet-panel {
+    padding: 18px;
+  }
+
+  .maintenance-progress-heading {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .maintenance-card-actions {
+    flex-direction: column;
+  }
+
+  .maintenance-card-actions .button {
+    width: 100%;
+  }
+
+  .maintenance-details-grid {
+    grid-template-columns: 1fr;
+  }
+}

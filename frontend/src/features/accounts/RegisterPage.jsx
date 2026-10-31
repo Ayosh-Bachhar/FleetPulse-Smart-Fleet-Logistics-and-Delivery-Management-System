@@ -70,93 +70,124 @@ function RegisterPage() {
     }
   }
 
-  const inputStyle = {
-    width: '100%',
-    padding: '10px',
-    marginTop: '5px',
-    boxSizing: 'border-box',
-  }
-
   return (
-    <main style={{ maxWidth: '440px', margin: '40px auto', padding: '20px' }}>
-      <h1>FleetPulse</h1>
-      <h2>Create Account</h2>
+    <>
+      <header className="site-header">
+        <Link to="/" className="brand">
+          <span className="brand-symbol">F</span>
+          FleetPulse
+        </Link>
+      </header>
 
-      <form
-        onSubmit={handleSubmit}
-        style={{ display: 'grid', gap: '15px', textAlign: 'left' }}
-      >
-        <label>
-          Full Name
-          <input
-            type="text"
-            name="full_name"
-            value={form.full_name}
-            onChange={handleChange}
-            minLength={2}
-            maxLength={100}
-            autoComplete="name"
-            required
-            style={inputStyle}
-          />
-        </label>
+      <main className="auth-container">
+        <section className="auth-card">
+          <h1 className="page-title">Create an account</h1>
 
-        <label>
-          Email Address
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            autoComplete="email"
-            required
-            style={inputStyle}
-          />
-        </label>
+          <p className="page-subtitle">
+            Get started with FleetPulse.
+          </p>
 
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            minLength={8}
-            autoComplete="new-password"
-            required
-            style={inputStyle}
-          />
-        </label>
+          <form
+            className="form-stack"
+            onSubmit={handleSubmit}
+          >
+            <label className="field">
+              Full name
+              <input
+                className="form-input"
+                type="text"
+                name="full_name"
+                value={form.full_name}
+                onChange={handleChange}
+                minLength={2}
+                maxLength={100}
+                autoComplete="name"
+                placeholder="Your full name"
+                required
+              />
+            </label>
 
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            name="confirm_password"
-            value={form.confirm_password}
-            onChange={handleChange}
-            minLength={8}
-            autoComplete="new-password"
-            required
-            style={inputStyle}
-          />
-        </label>
+            <label className="field">
+              Email address
+              <input
+                className="form-input"
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                autoComplete="email"
+                placeholder="name@example.com"
+                required
+              />
+            </label>
 
-        <button type="submit" disabled={loading} style={{ padding: '12px' }}>
-          {loading ? 'Creating Account...' : 'Register'}
-        </button>
-      </form>
+            <label className="field">
+              Password
+              <input
+                className="form-input"
+                type="password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                minLength={8}
+                autoComplete="new-password"
+                required
+              />
 
-      {error && <p role="alert" style={{ color: '#dc2626', marginTop: '15px' }}>{error}</p>}
-      {success && <p role="status" style={{ color: '#16803c', marginTop: '15px' }}>{success}</p>}
+              <span className="form-helper">
+                At least 8 characters.
+              </span>
+            </label>
 
-      <p style={{ marginTop: '20px' }}>
-        <Link to="/">Back to Home</Link>
-      </p>
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
-    </main>
+            <label className="field">
+              Confirm password
+              <input
+                className="form-input"
+                type="password"
+                name="confirm_password"
+                value={form.confirm_password}
+                onChange={handleChange}
+                minLength={8}
+                autoComplete="new-password"
+                required
+              />
+            </label>
+
+            <div className="form-actions">
+              <button
+                className="button button-primary button-block"
+                type="submit"
+                disabled={loading}
+              >
+                {loading
+                  ? 'Creating account...'
+                  : 'Create account'}
+              </button>
+            </div>
+          </form>
+
+          {error && (
+            <p className="notice notice-error" role="alert">
+              {error}
+            </p>
+          )}
+
+          {success && (
+            <p className="notice notice-success" role="status">
+              {success}{' '}
+              <Link to="/login">Log in</Link>
+            </p>
+          )}
+
+          <p className="auth-footer">
+            Already have an account?{' '}
+            <Link to="/login" className="text-link">
+              Log in
+            </Link>
+          </p>
+        </section>
+      </main>
+    </>
   )
 }
 

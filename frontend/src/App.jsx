@@ -22,9 +22,7 @@ function App() {
           setStatus('Unexpected backend response')
         }
       } catch (error) {
-        if (error.code === 'ERR_CANCELED') {
-          return
-        }
+        if (error.code === 'ERR_CANCELED') return
 
         setStatus('Connection failed')
         setMessage('Unable to communicate with the FastAPI backend.')
@@ -37,27 +35,73 @@ function App() {
     return () => controller.abort()
   }, [])
 
+  const connectionState = status === 'Connected successfully'
+    ? 'ok'
+    : status === 'Connection failed' || status === 'Unexpected backend response'
+      ? 'error'
+      : ''
+
   return (
-    <main>
-      <h1>FleetPulse</h1>
-      <h2>Smart Fleet Logistics and Delivery Management System</h2>
+    <>
+      <header className="site-header">
+        <Link to="/" className="brand">
+          <span className="brand-symbol">F</span>
+          FleetPulse
+        </Link>
 
-      <h3>Frontend and Backend Connection Test</h3>
+        <nav className="header-links" aria-label="Main navigation">
+          <Link to="/login">Log in</Link>
+          <Link to="/register" className="button button-primary">
+            Get started
+          </Link>
+        </nav>
+      </header>
 
-      <p>
-        <strong>Status:</strong> {status}
-      </p>
+      <main className="home-main">
+        <section className="home-hero">
+          <p className="eyebrow">Smart fleet management</p>
 
-      <p>{message}</p>
+          <h1 className="display-title">
+            A simpler way to manage your fleet.
+          </h1>
 
-      <p style={{ marginTop: '25px' }}>
-        <Link to="/register">Create an Account</Link>
-      </p>
-      <p>
-        <Link to="/login">Login to FleetPulse</Link>
-      </p>
+          <p className="lead">
+            FleetPulse is a smart fleet logistics and delivery
+            management system designed to bring your operations
+            together in one place.
+          </p>
 
-    </main>
+          <div className="hero-actions">
+            <Link to="/register" className="button button-primary">
+              Create an account
+            </Link>
+
+            <Link to="/login" className="button button-outline">
+              Log in
+            </Link>
+          </div>
+        </section>
+
+        <section
+          className="status-card"
+          aria-label="Backend connection status"
+        >
+          <h2>System connection</h2>
+
+          <div className="status-line" role="status">
+            <span
+              className={`status-dot ${connectionState}`}
+              aria-hidden="true"
+            />
+            <span>{status}</span>
+          </div>
+
+          {message && (
+            <p className="status-message">{message}</p>
+          )}
+        </section>
+      </main>
+    </>
   )
 }
 
