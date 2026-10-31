@@ -15,7 +15,6 @@ from app.controllers.accounts.logout_controller import (
 from app.controllers.accounts.password_reset_controller import (
     router as password_reset_router,
 )
-
 from app.controllers.fleet_management_controller import (
     router as fleet_management_router,
 )
@@ -27,6 +26,9 @@ from app.controllers.shift_roster_controller import (
 )
 from app.controllers.maintenance_alerts_controller import (
     router as maintenance_alerts_router,
+)
+from app.controllers.dispatch_planning_controller import (
+    router as dispatch_planning_router,
 )
 
 from app.core.config import settings
@@ -100,5 +102,11 @@ async def health_check():
 # F4 - Maintenance Alerts
 app.include_router(
     maintenance_alerts_router,
+    prefix="/api/v1",
+)
+
+# F11 - Dispatch Planning
+app.include_router(
+    dispatch_planning_router,
     prefix="/api/v1",
 )

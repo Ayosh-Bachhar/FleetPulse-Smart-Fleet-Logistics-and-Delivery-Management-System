@@ -20,6 +20,7 @@ import FleetManagementPage from '../features/fleet_management/FleetManagementPag
 import DriverManagementPage from '../features/driver_management/DriverManagementPage'
 import ShiftRosterPage from '../features/shift_roster/ShiftRosterPage'
 import MaintenanceAlertsPage from '../features/maintenance_alerts/MaintenanceAlertsPage'
+import DispatchPlanningPage from '../features/dispatch_planning/DispatchPlanningPage'
 
 function LoginRoute() {
   const { user, authLoading } = useAuth()
@@ -129,6 +130,11 @@ function AppRoutes() {
             <Route
               path="/shifts"
               element={<ShiftRosterPage />}
+            />
+
+            <Route
+              path="/dispatch"
+              element={<DispatchPlanningPage />}
             />
           </Route>
         </Route>
