@@ -74,11 +74,19 @@ function Sidebar() {
             </NavLink>
 
             <NavLink
-            to="/dispatch"
-            className={navClass}
+              to="/dispatch"
+              className={navClass}
             >
               Dispatch Planning
             </NavLink>
+
+            <NavLink
+              to="/routes"
+              className={navClass}
+            >
+              Route Distance & Time
+            </NavLink>
+
 
           </>
         )}

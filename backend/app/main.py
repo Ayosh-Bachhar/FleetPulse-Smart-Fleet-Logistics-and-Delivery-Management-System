@@ -30,6 +30,9 @@ from app.controllers.maintenance_alerts_controller import (
 from app.controllers.dispatch_planning_controller import (
     router as dispatch_planning_router,
 )
+from app.controllers.route_distance_and_time_controller import (
+    router as route_distance_and_time_router,
+)
 
 from app.core.config import settings
 
@@ -108,5 +111,11 @@ app.include_router(
 # F11 - Dispatch Planning
 app.include_router(
     dispatch_planning_router,
+    prefix="/api/v1",
+)
+
+# F12 - Route Distance and Time
+app.include_router(
+    route_distance_and_time_router,
     prefix="/api/v1",
 )

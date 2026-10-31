@@ -1413,3 +1413,276 @@
     gap: 5px;
   }
 }
+
+/* ==========================================
+   F12 - Route Distance and Time
+   ========================================== */
+
+.route-page {
+  display: grid;
+  gap: 25px;
+}
+
+.route-page .workspace-heading {
+  margin-bottom: 10px;
+}
+
+/* Selected trip */
+
+.route-trip-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.route-trip-preview > div {
+  display: grid;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #faf7f2;
+}
+
+.route-trip-preview span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.route-trip-preview strong {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+/* Calculation controls */
+
+.route-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 24px;
+}
+
+.route-refresh-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.route-refresh-label input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+.route-readonly-note {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Route provider indicator */
+
+.route-source {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.route-source-live {
+  background: #e5f4ea;
+  color: #287147;
+}
+
+.route-source-demo {
+  background: #fff0d3;
+  color: #a36b19;
+}
+
+.route-warning {
+  margin-bottom: 20px;
+  padding: 15px 18px;
+  border: 1px solid #eed9ae;
+  border-radius: 10px;
+  background: #fff0d3;
+  color: #99571b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Route summary statistics */
+
+.route-summary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.route-summary-stats > div {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f7f3ed;
+}
+
+.route-summary-stats span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.route-summary-stats strong {
+  color: var(--text);
+  font-size: clamp(19px, 3vw, 26px);
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.route-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.route-details > div {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.route-details span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.route-details strong {
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* Ordered stops */
+
+.route-stops-section {
+  margin-top: 30px;
+}
+
+.route-stops-section h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.route-stops-section > p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.route-stop-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.route-stop-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #faf7f2;
+}
+
+.route-stop-number {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.route-stop-content {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.route-stop-content strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.route-stop-content > span {
+  color: var(--text);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.route-stop-content small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.route-geometry-note {
+  margin-top: 22px;
+  padding: 14px;
+  border-radius: 9px;
+  background: #eef3fa;
+  color: #385d91;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+  .route-summary-stats,
+  .route-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .route-trip-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .route-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .route-actions .button {
+    width: 100%;
+  }
+
+  .route-page .fleet-panel {
+    padding: 18px;
+  }
+}
