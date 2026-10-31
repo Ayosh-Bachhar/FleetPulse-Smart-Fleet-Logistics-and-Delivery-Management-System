@@ -36,99 +36,129 @@ function LoginPage() {
     }
   }
 
-  const inputStyle = {
-    width: '100%',
-    padding: '10px',
-    marginTop: '5px',
-    boxSizing: 'border-box',
-  }
-
   return (
-    <main style={{
-      maxWidth: '440px',
-      margin: '40px auto',
-      padding: '20px',
-    }}>
-      <h1>FleetPulse</h1>
-      <h2>User Login</h2>
+    <>
+      <header className="site-header">
+        <Link to="/" className="brand">
+          <span className="brand-symbol">F</span>
+          FleetPulse
+        </Link>
+      </header>
 
-      {authLoading ? (
-        <p>Checking your session...</p>
-      ) : user ? (
-        <section role="status">
-          <h3>Login Successful!</h3>
-          <p>Welcome, {user.full_name}!</p>
-          <p>Email: {user.email}</p>
-          <p>Role: {user.role}</p>
-          <p>Your session is active.</p>
-
-          <LogoutButton />
-          <p style={{ marginTop: '20px' }}>
-            <Link to="/">Back to Home</Link>
-          </p>
-        </section>
-      ) : (
-        <>
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              display: 'grid',
-              gap: '15px',
-              textAlign: 'left',
-            }}
-          >
-            <label>
-              Email Address
-              <input
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                autoComplete="email"
-                required
-                style={inputStyle}
-              />
-            </label>
-
-            <label>
-              Password
-              <input
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                autoComplete="current-password"
-                required
-                style={inputStyle}
-              />
-            </label>
-
-            <button
-              type="submit"
-              disabled={loading}
-              style={{ padding: '12px' }}
-            >
-              {loading ? 'Logging in...' : 'Login'}
-            </button>
-          </form>
-
-          <p style={{ marginTop: '15px' }}>
-            <Link to="/forgot-password">Forgot Password?</Link>
-          </p>
-
-          {error && (
-            <p role="alert" style={{ color: '#dc2626' }}>
-              {error}
+      <main className="auth-container">
+        <section className="auth-card">
+          {authLoading ? (
+            <p role="status" className="page-subtitle">
+              Checking your session...
             </p>
+          ) : user ? (
+            <>
+              <h1 className="page-title">
+                Welcome back, {user.full_name}.
+              </h1>
+
+              <p className="page-subtitle">
+                Your session is active.
+              </p>
+
+              <div className="account-details" role="status">
+                <span>
+                  <strong>Email:</strong> {user.email}
+                </span>
+                <span>
+                  <strong>Role:</strong> {user.role}
+                </span>
+              </div>
+
+              <LogoutButton />
+
+              <p className="auth-footer">
+                <Link to="/" className="text-link">
+                  Back to home
+                </Link>
+              </p>
+            </>
+          ) : (
+            <>
+              <h1 className="page-title">Welcome back</h1>
+
+              <p className="page-subtitle">
+                Log in to your FleetPulse account.
+              </p>
+
+              <form
+                className="form-stack"
+                onSubmit={handleSubmit}
+              >
+                <label className="field">
+                  Email address
+                  <input
+                    className="form-input"
+                    type="email"
+                    value={email}
+                    onChange={(event) =>
+                      setEmail(event.target.value)
+                    }
+                    autoComplete="email"
+                    placeholder="name@example.com"
+                    required
+                  />
+                </label>
+
+                <label className="field">
+                  Password
+                  <input
+                    className="form-input"
+                    type="password"
+                    value={password}
+                    onChange={(event) =>
+                      setPassword(event.target.value)
+                    }
+                    autoComplete="current-password"
+                    required
+                  />
+                </label>
+
+                <div className="form-actions">
+                  <button
+                    className="button button-primary button-block"
+                    type="submit"
+                    disabled={loading}
+                  >
+                    {loading ? 'Logging in...' : 'Log in'}
+                  </button>
+
+                  <div className="form-secondary">
+                    <Link
+                      className="text-link"
+                      to="/forgot-password"
+                    >
+                      Forgot password?
+                    </Link>
+                  </div>
+                </div>
+              </form>
+
+              {error && (
+                <p
+                  className="notice notice-error"
+                  role="alert"
+                >
+                  {error}
+                </p>
+              )}
+
+              <p className="auth-footer">
+                Don't have an account?{' '}
+                <Link to="/register" className="text-link">
+                  Register
+                </Link>
+              </p>
+            </>
           )}
-
-          <p>
-            Don't have an account?{' '}
-            <Link to="/register">Register</Link>
-          </p>
-
-          <Link to="/">Back to Home</Link>
-        </>
-      )}
-    </main>
+        </section>
+      </main>
+    </>
   )
 }
 

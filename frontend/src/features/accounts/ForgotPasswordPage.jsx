@@ -39,78 +39,73 @@ function ForgotPasswordPage() {
   }
 
   return (
-    <main style={{
-      maxWidth: '440px',
-      margin: '40px auto',
-      padding: '20px',
-    }}>
-      <h1>FleetPulse</h1>
-      <h2>Forgot Password</h2>
+    <>
+      <header className="site-header">
+        <Link to="/" className="brand">
+          <span className="brand-symbol">F</span>
+          FleetPulse
+        </Link>
+      </header>
 
-      <p style={{ marginBottom: '20px' }}>
-        Enter your registered email address to request
-        a password reset link.
-      </p>
+      <main className="auth-container">
+        <section className="auth-card">
+          <h1 className="page-title">Forgot password?</h1>
 
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          display: 'grid',
-          gap: '15px',
-          textAlign: 'left',
-        }}
-      >
-        <label>
-          Email Address
+          <p className="page-subtitle">
+            Enter your registered email address.
+            We'll send you a password reset link.
+          </p>
 
-          <input
-            type="email"
-            value={email}
-            onChange={(event) =>
-              setEmail(event.target.value)
-            }
-            autoComplete="email"
-            required
-            style={{
-              width: '100%',
-              padding: '10px',
-              marginTop: '5px',
-              boxSizing: 'border-box',
-            }}
-          />
-        </label>
+          <form
+            className="form-stack"
+            onSubmit={handleSubmit}
+          >
+            <label className="field">
+              Email address
+              <input
+                className="form-input"
+                type="email"
+                value={email}
+                onChange={(event) =>
+                  setEmail(event.target.value)
+                }
+                autoComplete="email"
+                placeholder="name@example.com"
+                required
+              />
+            </label>
 
-        <button
-          type="submit"
-          disabled={loading}
-          style={{ padding: '12px' }}
-        >
-          {loading ? 'Sending...' : 'Send Reset Link'}
-        </button>
-      </form>
+            <div className="form-actions">
+              <button
+                className="button button-primary button-block"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? 'Sending...' : 'Send reset link'}
+              </button>
+            </div>
+          </form>
 
-      {error && (
-        <p role="alert" style={{
-          color: '#dc2626',
-          marginTop: '15px',
-        }}>
-          {error}
-        </p>
-      )}
+          {error && (
+            <p className="notice notice-error" role="alert">
+              {error}
+            </p>
+          )}
 
-      {success && (
-        <p role="status" style={{
-          color: '#16803c',
-          marginTop: '15px',
-        }}>
-          {success}
-        </p>
-      )}
+          {success && (
+            <p className="notice notice-success" role="status">
+              {success}
+            </p>
+          )}
 
-      <p style={{ marginTop: '20px' }}>
-        <Link to="/login">Back to Login</Link>
-      </p>
-    </main>
+          <p className="auth-footer">
+            <Link to="/login" className="text-link">
+              Back to login
+            </Link>
+          </p>
+        </section>
+      </main>
+    </>
   )
 }
 

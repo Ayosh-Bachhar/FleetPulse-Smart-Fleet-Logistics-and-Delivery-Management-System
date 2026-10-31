@@ -21,31 +21,22 @@ function LogoutButton() {
   }
 
   return (
-    <div style={{ marginTop: '20px' }}>
+    <>
       <button
+        className="button button-outline"
         type="button"
         onClick={handleLogout}
         disabled={loading}
-        style={{
-          padding: '10px 20px',
-          cursor: loading ? 'wait' : 'pointer',
-        }}
       >
-        {loading ? 'Logging out...' : 'Logout'}
+        {loading ? 'Logging out...' : 'Log out'}
       </button>
 
       {error && (
-        <p
-          role="alert"
-          style={{
-            color: '#dc2626',
-            marginTop: '10px',
-          }}
-        >
+        <p className="notice notice-error" role="alert">
           {error}
         </p>
       )}
-    </div>
+    </>
   )
 }
 

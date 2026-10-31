@@ -42,7 +42,6 @@ function ResetPasswordPage() {
       setNewPassword('')
       setConfirmPassword('')
 
-      // Remove the single-use token from the address bar.
       window.history.replaceState(
         window.history.state,
         '',
@@ -50,124 +49,131 @@ function ResetPasswordPage() {
       )
     } catch (err) {
       if (err.response?.status === 400) {
-        setError('This reset link is invalid, expired, or already used.')
+        setError(
+          'This reset link is invalid, expired, or already used.'
+        )
       } else if (err.response?.status === 422) {
         setError('Please check your password details.')
       } else {
-        setError('Unable to reset password. Please try again.')
+        setError(
+          'Unable to reset password. Please try again.'
+        )
       }
     } finally {
       setLoading(false)
     }
   }
 
-  const inputStyle = {
-    width: '100%',
-    padding: '10px',
-    marginTop: '5px',
-    boxSizing: 'border-box',
-  }
-
   return (
-    <main style={{
-      maxWidth: '440px',
-      margin: '40px auto',
-      padding: '20px',
-    }}>
-      <h1>FleetPulse</h1>
-      <h2>Reset Password</h2>
+    <>
+      <header className="site-header">
+        <Link to="/" className="brand">
+          <span className="brand-symbol">F</span>
+          FleetPulse
+        </Link>
+      </header>
 
-      {success ? (
-        <section role="status">
-          <h3>Password Reset Successful!</h3>
+      <main className="auth-container">
+        <section className="auth-card">
+          <h1 className="page-title">Reset password</h1>
 
-          <p>
-            Your password has been updated successfully.
-            Please log in with your new password.
-          </p>
+          {success ? (
+            <section role="status">
+              <p className="notice notice-success">
+                Your password has been updated successfully.
+              </p>
 
-          <p style={{ marginTop: '20px' }}>
-            <a href="/login">Go to Login</a>
-          </p>
-        </section>
-      ) : !token || token.length < 32 ? (
-        <section role="alert">
-          <p style={{ color: '#dc2626' }}>
-            Invalid password reset link.
-          </p>
+              <p className="auth-footer">
+                <Link to="/login" className="text-link">
+                  Go to login
+                </Link>
+              </p>
+            </section>
+          ) : !token || token.length < 32 ? (
+            <section role="alert">
+              <p className="notice notice-error">
+                Invalid password reset link.
+              </p>
 
-          <p style={{ marginTop: '20px' }}>
-            <Link to="/forgot-password">
-              Request a New Reset Link
-            </Link>
-          </p>
-        </section>
-      ) : (
-        <>
-          <p style={{ marginBottom: '20px' }}>
-            Enter your new password below.
-          </p>
+              <p className="auth-footer">
+                <Link
+                  to="/forgot-password"
+                  className="text-link"
+                >
+                  Request a new reset link
+                </Link>
+              </p>
+            </section>
+          ) : (
+            <>
+              <p className="page-subtitle">
+                Choose a new password for your account.
+              </p>
 
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              display: 'grid',
-              gap: '15px',
-              textAlign: 'left',
-            }}
-          >
-            <label>
-              New Password
+              <form
+                className="form-stack"
+                onSubmit={handleSubmit}
+              >
+                <label className="field">
+                  New password
+                  <input
+                    className="form-input"
+                    type="password"
+                    value={newPassword}
+                    onChange={(event) =>
+                      setNewPassword(event.target.value)
+                    }
+                    minLength={8}
+                    autoComplete="new-password"
+                    required
+                  />
 
-              <input
-                type="password"
-                value={newPassword}
-                onChange={(event) =>
-                  setNewPassword(event.target.value)
-                }
-                minLength={8}
-                autoComplete="new-password"
-                required
-                style={inputStyle}
-              />
-            </label>
+                  <span className="form-helper">
+                    At least 8 characters.
+                  </span>
+                </label>
 
-            <label>
-              Confirm New Password
+                <label className="field">
+                  Confirm new password
+                  <input
+                    className="form-input"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(event) =>
+                      setConfirmPassword(event.target.value)
+                    }
+                    minLength={8}
+                    autoComplete="new-password"
+                    required
+                  />
+                </label>
 
-              <input
-                type="password"
-                value={confirmPassword}
-                onChange={(event) =>
-                  setConfirmPassword(event.target.value)
-                }
-                minLength={8}
-                autoComplete="new-password"
-                required
-                style={inputStyle}
-              />
-            </label>
+                <div className="form-actions">
+                  <button
+                    className="button button-primary button-block"
+                    type="submit"
+                    disabled={loading}
+                  >
+                    {loading
+                      ? 'Resetting...'
+                      : 'Reset password'}
+                  </button>
+                </div>
+              </form>
 
-            <button
-              type="submit"
-              disabled={loading}
-              style={{ padding: '12px' }}
-            >
-              {loading ? 'Resetting...' : 'Reset Password'}
-            </button>
-          </form>
-
-          {error && (
-            <p role="alert" style={{
-              color: '#dc2626',
-              marginTop: '15px',
-            }}>
-              {error}
-            </p>
+              {error && (
+                <p
+                  className="notice notice-error"
+                  role="alert"
+                >
+                  {error}
+                </p>
+              )}
+            </>
           )}
-        </>
-      )}
-    </main>
+        </section>
+      </main>
+    </>
   )
 }
 
