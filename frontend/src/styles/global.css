@@ -1686,3 +1686,250 @@
     padding: 18px;
   }
 }
+
+/* ==========================================
+   F13 - Stop Sequencing
+   ========================================== */
+
+.sequence-page {
+  display: grid;
+  gap: 24px;
+}
+
+.sequence-page .workspace-heading {
+  margin-bottom: 10px;
+}
+
+/* Trip information */
+
+.sequence-trip-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.sequence-trip-info > div {
+  display: grid;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #faf7f2;
+}
+
+.sequence-trip-info span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.sequence-trip-info strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+/* Actions */
+
+.sequence-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+/* Result header */
+
+.sequence-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #fff0d3;
+  color: #946217;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sequence-pill-saved {
+  background: #e5f4ea;
+  color: #287147;
+}
+
+.sequence-note {
+  margin: 16px 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #faf7f2;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.sequence-saved-notice {
+  margin: 20px 0 0;
+  padding: 14px 16px;
+  border: 1px solid #cde9d4;
+  border-radius: 9px;
+  background: #e5f4ea;
+  color: #287147;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Distance and time comparison */
+
+.sequence-comparison {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sequence-comparison > div {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 11px;
+  background: #f7f3ed;
+}
+
+.sequence-comparison span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.sequence-comparison strong {
+  color: var(--text);
+  font-size: clamp(17px, 2vw, 23px);
+  font-weight: 700;
+}
+
+.sequence-comparison small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.sequence-explanation {
+  margin: 18px 0 22px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Side-by-side stop lists */
+
+.sequence-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.sequence-stop-group h3 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.sequence-stop-list {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sequence-stop-list li {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #faf7f2;
+}
+
+.sequence-stop-index {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sequence-stop-text {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.sequence-stop-text strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.sequence-stop-text span {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.sequence-stop-text small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* Comparison footer */
+
+.sequence-variant-footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.sequence-variant-footer > div {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.sequence-variant-footer span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.sequence-variant-footer strong {
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .sequence-comparison {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .sequence-trip-info,
+  .sequence-two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .sequence-actions .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sequence-comparison,
+  .sequence-variant-footer {
+    grid-template-columns: 1fr;
+  }
+}

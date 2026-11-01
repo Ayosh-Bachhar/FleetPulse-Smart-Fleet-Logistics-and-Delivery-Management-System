@@ -33,6 +33,9 @@ from app.controllers.dispatch_planning_controller import (
 from app.controllers.route_distance_and_time_controller import (
     router as route_distance_and_time_router,
 )
+from app.controllers.stop_sequencing_controller import (
+    router as stop_sequencing_router,
+)
 
 from app.core.config import settings
 
@@ -117,5 +120,11 @@ app.include_router(
 # F12 - Route Distance and Time
 app.include_router(
     route_distance_and_time_router,
+    prefix="/api/v1",
+)
+
+# F13 - Stop Sequencing
+app.include_router(
+    stop_sequencing_router,
     prefix="/api/v1",
 )
