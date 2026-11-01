@@ -10,6 +10,7 @@ from app.models.maintenance_record import MaintenanceRecord
 from app.models.order import Order
 from app.models.trip import Trip
 from app.models.trip_route import TripRoute
+from app.models.position_update import PositionUpdate
 
 from app.models.shift import Shift
 from app.models.external_api_cache import ExternalApiCache
@@ -35,6 +36,7 @@ async def connect_to_database():
             Order,
             Trip,
             TripRoute,
+            PositionUpdate,
         ],
     )
 

@@ -23,6 +23,7 @@ import MaintenanceAlertsPage from '../features/maintenance_alerts/MaintenanceAle
 import DispatchPlanningPage from '../features/dispatch_planning/DispatchPlanningPage'
 import RouteDistanceAndTimePage from '../features/route_distance_and_time/RouteDistanceAndTimePage'
 import StopSequencingPage from '../features/stop_sequencing/StopSequencingPage'
+import SimulationControlPage from '../features/simulated_gps/SimulationControlPage'
 
 function LoginRoute() {
   const { user, authLoading } = useAuth()
@@ -147,6 +148,11 @@ function AppRoutes() {
             <Route
               path="/stop-sequencing"
               element={<StopSequencingPage />}
+            />
+
+            <Route
+              path="/gps-simulation"
+              element={<SimulationControlPage />}
             />
 
           </Route>

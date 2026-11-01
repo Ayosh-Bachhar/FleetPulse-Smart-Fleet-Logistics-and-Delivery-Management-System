@@ -11,6 +11,11 @@ function Sidebar() {
     || user?.role === 'dispatcher'
   )
 
+  const canViewGPS = (
+    canManageOperations
+    || user?.role === 'driver'
+  )
+
   const navClass = ({ isActive }) =>
     `workspace-navlink ${isActive ? 'is-active' : ''}`
 
@@ -84,7 +89,7 @@ function Sidebar() {
               to="/routes"
               className={navClass}
             >
-              Route Distance & Time
+              Route Distance &amp; Time
             </NavLink>
 
             <NavLink
@@ -93,9 +98,16 @@ function Sidebar() {
             >
               Stop Sequencing
             </NavLink>
-
-
           </>
+        )}
+
+        {canViewGPS && (
+          <NavLink
+            to="/gps-simulation"
+            className={navClass}
+          >
+            Simulated GPS
+          </NavLink>
         )}
 
         <Link

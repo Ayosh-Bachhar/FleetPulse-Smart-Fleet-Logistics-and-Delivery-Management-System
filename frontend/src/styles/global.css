@@ -1933,3 +1933,198 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================
+   F14 - Simulated GPS
+   ========================================== */
+
+.gps-page {
+  display: grid;
+  gap: 24px;
+}
+
+.gps-page .workspace-heading {
+  margin-bottom: 10px;
+}
+
+/* Trip information */
+
+.gps-trip-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.gps-stat {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #faf7f2;
+}
+
+.gps-stat span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.gps-stat strong {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* Simulation controls */
+
+.gps-controls {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.gps-controls .field {
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.gps-control-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Simulation status */
+
+.gps-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 9px;
+  background: #eeeae5;
+  color: #6d6a66;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.gps-status-running {
+  background: #e5f4ea;
+  color: #287147;
+}
+
+.gps-status-paused {
+  background: #fff0d3;
+  color: #946217;
+}
+
+.gps-status-finished {
+  background: #e8f0fa;
+  color: #385d91;
+}
+
+.gps-status-stopped {
+  background: #f9e7e7;
+  color: #a34242;
+}
+
+/* Progress display */
+
+.gps-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.gps-progress-header span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.gps-progress-header strong {
+  color: var(--text);
+  font-size: 18px;
+}
+
+.gps-progress-track {
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e9e1d8;
+}
+
+.gps-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.5s ease;
+}
+
+/* Position details */
+
+.gps-position-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.gps-information {
+  margin: 20px 0 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #faf7f2;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+  .gps-trip-summary,
+  .gps-position-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .gps-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gps-controls .field {
+    width: 100%;
+  }
+
+  .gps-control-buttons {
+    justify-content: stretch;
+  }
+
+  .gps-control-buttons .button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .gps-trip-summary,
+  .gps-position-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .gps-control-buttons {
+    flex-direction: column;
+  }
+}
