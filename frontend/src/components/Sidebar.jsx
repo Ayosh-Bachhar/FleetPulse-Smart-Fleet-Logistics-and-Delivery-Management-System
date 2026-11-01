@@ -87,6 +87,13 @@ function Sidebar() {
               Route Distance & Time
             </NavLink>
 
+            <NavLink
+              to="/stop-sequencing"
+              className={navClass}
+            >
+              Stop Sequencing
+            </NavLink>
+
 
           </>
         )}

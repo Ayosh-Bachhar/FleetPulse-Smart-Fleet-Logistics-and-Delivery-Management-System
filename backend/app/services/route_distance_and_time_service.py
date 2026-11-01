@@ -220,6 +220,18 @@ async def calculate_trip_route(
         TripRoute.trip_id == trip.id
     )
 
+    # F13: Preserve optimized route ordering.
+    if (
+        existing is not None
+        and existing.optimized_at is not None
+        and force_refresh
+    ):
+        raise RouteConflictError(
+            "This trip has an optimized F13 route. "
+            "F12 recalculation is blocked to preserve "
+            "the saved stop sequence."
+        )
+
     if existing is not None and not force_refresh:
         return route_to_response(
             existing,

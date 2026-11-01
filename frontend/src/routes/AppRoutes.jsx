@@ -22,6 +22,7 @@ import ShiftRosterPage from '../features/shift_roster/ShiftRosterPage'
 import MaintenanceAlertsPage from '../features/maintenance_alerts/MaintenanceAlertsPage'
 import DispatchPlanningPage from '../features/dispatch_planning/DispatchPlanningPage'
 import RouteDistanceAndTimePage from '../features/route_distance_and_time/RouteDistanceAndTimePage'
+import StopSequencingPage from '../features/stop_sequencing/StopSequencingPage'
 
 function LoginRoute() {
   const { user, authLoading } = useAuth()
@@ -141,6 +142,11 @@ function AppRoutes() {
             <Route
               path="/routes"
               element={<RouteDistanceAndTimePage />}
+            />
+
+            <Route
+              path="/stop-sequencing"
+              element={<StopSequencingPage />}
             />
 
           </Route>
