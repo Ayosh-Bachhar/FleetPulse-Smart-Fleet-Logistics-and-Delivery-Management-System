@@ -25,6 +25,7 @@ import RouteDistanceAndTimePage from '../features/route_distance_and_time/RouteD
 import StopSequencingPage from '../features/stop_sequencing/StopSequencingPage'
 import SimulationControlPage from '../features/simulated_gps/SimulationControlPage'
 import OrderIntakePage from '../features/order_intake/OrderIntakePage'
+import OrderLifecyclePage from '../features/order_lifecycle/OrderLifecyclePage'
 
 function LoginRoute() {
   const { user, authLoading } = useAuth()
@@ -159,6 +160,11 @@ function AppRoutes() {
             <Route
               path="/orders"
               element={<OrderIntakePage />}
+            />
+
+            <Route
+              path="/order-lifecycle"
+              element={<OrderLifecyclePage />}
             />
 
           </Route>

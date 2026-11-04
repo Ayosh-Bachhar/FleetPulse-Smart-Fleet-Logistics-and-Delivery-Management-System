@@ -66,6 +66,11 @@ from app.controllers.order_intake_controller import (
     router as order_intake_router,
 )
 
+# F9 - Order Lifecycle
+from app.controllers.order_lifecycle_controller import (
+    router as order_lifecycle_router,
+)
+
 
 # Configuration and Database
 from app.core.config import settings
@@ -207,5 +212,11 @@ app.include_router(
 # F6 - Order Intake
 app.include_router(
     order_intake_router,
+    prefix="/api/v1",
+)
+
+# F9 - Order Lifecycle
+app.include_router(
+    order_lifecycle_router,
     prefix="/api/v1",
 )
