@@ -2128,3 +2128,232 @@
     flex-direction: column;
   }
 }
+
+/* ==========================================
+   F6 - Order Intake
+   ========================================== */
+
+.order-page {
+  display: grid;
+  gap: 25px;
+}
+
+.order-page .workspace-heading {
+  margin-bottom: 10px;
+}
+
+/* Order form */
+
+.order-form {
+  display: grid;
+  gap: 22px;
+}
+
+.order-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.order-address-input {
+  min-height: 95px;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+.order-field-help {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.order-section-heading h3 {
+  margin: 0 0 7px;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.order-section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Calculated volume */
+
+.order-calculated-volume {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #faf7f2;
+}
+
+.order-calculated-volume span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.order-calculated-volume strong {
+  color: var(--accent-hover);
+  font-size: 18px;
+  font-weight: 750;
+}
+
+/* Rush delivery */
+
+.order-rush-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.order-rush-option input {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  accent-color: var(--accent);
+}
+
+.order-rush-option > span {
+  display: grid;
+  gap: 6px;
+}
+
+.order-rush-option strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.order-rush-option small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.order-form-note {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 9px;
+  background: #f7f3ed;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Order table */
+
+.order-table {
+  min-width: 850px;
+}
+
+.order-date {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.order-address {
+  max-width: 190px;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+/* Order status indicators */
+
+.order-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.order-status-placed {
+  background: #fff0d3;
+  color: #946217;
+}
+
+.order-status-warehouse {
+  background: #e8f0fa;
+  color: #385d91;
+}
+
+.order-status-out_for_delivery {
+  background: #f8e8dc;
+  color: #a4532d;
+}
+
+.order-status-delivered {
+  background: #e5f4ea;
+  color: #287147;
+}
+
+/* Order details */
+
+.order-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.order-details-grid > div {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #faf7f2;
+}
+
+.order-details-grid span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.order-details-grid strong {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.order-tracking-id {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .order-form-grid,
+  .order-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-page .fleet-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .order-page .fleet-header .button {
+    width: 100%;
+  }
+}

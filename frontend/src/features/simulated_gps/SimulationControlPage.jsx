@@ -141,8 +141,6 @@ function SimulationControlPage() {
       }
     }
 
-    setLoadingPosition(true)
-
     refreshPosition()
 
     // Browser only reads updates. The backend
@@ -304,12 +302,17 @@ function SimulationControlPage() {
             className="form-input"
             value={tripId}
             disabled={loadingTrips || busy}
+
             onChange={(event) => {
-              setTripId(event.target.value)
+              const selectedId = event.target.value
+
+              setTripId(selectedId)
               setPosition(null)
+              setLoadingPosition(Boolean(selectedId))
               setError('')
               setMessage('')
             }}
+
           >
             <option value="">
               {loadingTrips
