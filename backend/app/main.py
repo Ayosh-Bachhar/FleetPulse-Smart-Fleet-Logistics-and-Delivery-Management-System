@@ -61,6 +61,12 @@ from app.scheduler.gps_simulation_scheduler import (
     gps_simulation_loop,
 )
 
+# F6 - Order Intake
+from app.controllers.order_intake_controller import (
+    router as order_intake_router,
+)
+
+
 # Configuration and Database
 from app.core.config import settings
 
@@ -195,5 +201,11 @@ app.include_router(
 # F14 - Simulated GPS
 app.include_router(
     simulated_gps_router,
+    prefix="/api/v1",
+)
+
+# F6 - Order Intake
+app.include_router(
+    order_intake_router,
     prefix="/api/v1",
 )

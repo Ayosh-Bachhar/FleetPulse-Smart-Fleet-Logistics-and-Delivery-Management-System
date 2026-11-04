@@ -16,6 +16,11 @@ function Sidebar() {
     || user?.role === 'driver'
   )
 
+  const canAccessOrderIntake = (
+    user?.role === 'customer'
+    || user?.role === 'dispatcher'
+  )
+
   const navClass = ({ isActive }) =>
     `workspace-navlink ${isActive ? 'is-active' : ''}`
 
@@ -47,6 +52,17 @@ function Sidebar() {
         >
           Dashboard
         </NavLink>
+
+        {canAccessOrderIntake && (
+          <NavLink
+            to="/orders"
+            className={navClass}
+          >
+            {user?.role === 'customer'
+              ? 'My Orders'
+              : 'Order Intake'}
+          </NavLink>
+        )}
 
         {canManageOperations && (
           <>

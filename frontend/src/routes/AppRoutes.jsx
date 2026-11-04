@@ -24,6 +24,7 @@ import DispatchPlanningPage from '../features/dispatch_planning/DispatchPlanning
 import RouteDistanceAndTimePage from '../features/route_distance_and_time/RouteDistanceAndTimePage'
 import StopSequencingPage from '../features/stop_sequencing/StopSequencingPage'
 import SimulationControlPage from '../features/simulated_gps/SimulationControlPage'
+import OrderIntakePage from '../features/order_intake/OrderIntakePage'
 
 function LoginRoute() {
   const { user, authLoading } = useAuth()
@@ -153,6 +154,11 @@ function AppRoutes() {
             <Route
               path="/gps-simulation"
               element={<SimulationControlPage />}
+            />
+
+            <Route
+              path="/orders"
+              element={<OrderIntakePage />}
             />
 
           </Route>
