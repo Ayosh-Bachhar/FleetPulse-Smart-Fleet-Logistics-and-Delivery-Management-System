@@ -64,6 +64,17 @@ function Sidebar() {
           </NavLink>
         )}
 
+       <NavLink
+          to="/order-lifecycle"
+          className={navClass}
+        >
+          {user?.role === 'customer'
+            ? 'Order Progress'
+            : user?.role === 'driver'
+            ? 'Assigned Orders'
+            : 'Order Lifecycle'}
+        </NavLink>
+
         {canManageOperations && (
           <>
             <NavLink

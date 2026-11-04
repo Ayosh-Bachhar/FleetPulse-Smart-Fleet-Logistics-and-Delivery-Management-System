@@ -2357,3 +2357,194 @@
     width: 100%;
   }
 }
+
+/* ==========================================
+   F9 - Order Lifecycle
+   ========================================== */
+
+.lifecycle-page {
+  display: grid;
+  gap: 24px;
+}
+
+.lifecycle-page .workspace-heading {
+  margin-bottom: 10px;
+}
+
+.lifecycle-table {
+  min-width: 790px;
+}
+
+.lifecycle-address {
+  max-width: 200px;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+.lifecycle-rush {
+  display: block;
+  margin-top: 6px;
+  color: #a4532d;
+  font-size: 11px;
+}
+
+/* Status badges */
+
+.lifecycle-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lifecycle-badge-placed {
+  color: #946217;
+  background: #fff0d3;
+}
+
+.lifecycle-badge-warehouse {
+  color: #385d91;
+  background: #e8f0fa;
+}
+
+.lifecycle-badge-out_for_delivery {
+  color: #a4532d;
+  background: #f8e8dc;
+}
+
+.lifecycle-badge-delivered {
+  color: #287147;
+  background: #e5f4ea;
+}
+
+/* Order details */
+
+.lifecycle-details,
+.lifecycle-addresses {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lifecycle-details > div,
+.lifecycle-addresses > div {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #faf7f2;
+}
+
+.lifecycle-details span:not(.lifecycle-badge),
+.lifecycle-addresses span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.lifecycle-details strong,
+.lifecycle-addresses strong {
+  color: var(--text);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.lifecycle-section-title {
+  margin: 28px 0 16px;
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* Lifecycle progress */
+
+.lifecycle-progress {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.lifecycle-progress-step {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 10px;
+  padding: 16px 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #faf7f2;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.lifecycle-progress-step.is-complete {
+  border-color: #d4e8d6;
+  background: #eaf5ec;
+  color: #287147;
+}
+
+.lifecycle-step-number {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background: #e9e1d8;
+  color: #716a62;
+  font-weight: 700;
+}
+
+.lifecycle-progress-step.is-complete
+.lifecycle-step-number {
+  background: #287147;
+  color: white;
+}
+
+/* Notes and actions */
+
+.lifecycle-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.lifecycle-note {
+  margin: 20px 0 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #faf7f2;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .lifecycle-details,
+  .lifecycle-addresses {
+    grid-template-columns: 1fr;
+  }
+
+  .lifecycle-progress {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lifecycle-actions .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 440px) {
+  .lifecycle-progress {
+    grid-template-columns: 1fr;
+  }
+}
